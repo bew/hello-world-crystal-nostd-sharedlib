@@ -1,4 +1,4 @@
-# Hello LLVM
+# Hello LLVM - crystal shared library experiment
 
 This is a baby experiment on LLVM compilation, to build a shared library from crystal source code
 
