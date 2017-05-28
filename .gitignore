@@ -1,0 +1,5 @@
+run_shared
+*.ll
+*.o
+*.so
+
