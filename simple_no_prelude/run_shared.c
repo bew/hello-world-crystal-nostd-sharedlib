@@ -3,7 +3,7 @@
 
 int main()
 {
-  void *lib_handler = dlopen("./crllvm.so", RTLD_NOW);
+  void *lib_handler = dlopen("./hello_llvm.so", RTLD_NOW);
   if (dlerror()) {
     perror("dlopen");
     return 1;
