@@ -3,16 +3,20 @@
 
 int main()
 {
+  char *err;
+
   void *lib_handler = dlopen("./hello_llvm.so", RTLD_NOW);
-  if (dlerror()) {
-    perror("dlopen");
+  if ((err = dlerror())) {
+    puts("dlopen error: ");
+    puts(err);
     return 1;
   }
 
   void (*func)() = dlsym(lib_handler, "crystal_do_something");
-  printf("func is at %p\n", func);
-  if (dlerror()) {
-    perror("dlsym");
+  printf("func `crystal_do_something` is at %p\n", func);
+  if ((err = dlerror())) {
+    puts("dlsym error: ");
+    puts(err);
     return 2;
   }
 
