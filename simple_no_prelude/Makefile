@@ -1,14 +1,13 @@
 
 
+all: build_tool/build_lib hello_llvm.so run_shared
 
+build_tool/build_lib: build_lib.cr
+	mkdir -vp build_tool
+	crystal build build_lib.cr -o build_tool/build_lib
 
-all: hello_llvm.so run_shared
-
-hello_llvm.o: hello_llvm.cr
-	crystal build --prelude=empty --cross-compile hello_llvm.cr
-
-hello_llvm.so: hello_llvm.o
-	cc -shared hello_llvm.o -o hello_llvm.so
+%.so: %.cr
+	./build_tool/build_lib $^ --prelude=empty
 
 run_shared: run_shared.c
 	cc run_shared.c -o run_shared -ldl
