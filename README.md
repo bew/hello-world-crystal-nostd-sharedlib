@@ -1,4 +1,4 @@
-# Hello LLVM - crystal shared library experiment
+# 'Hello world' crystal shared library experiment
 
 This is a baby experiment on LLVM compilation, to build a shared library from crystal source code
 
@@ -14,13 +14,13 @@ The generated library will exit the current process with error code `42`.
 $ cd ./simple_no_prelude
 ```
 
-1. Build the tester `run_shared`
+1. Build the tester `run_shared` (written in C)
 
 ```sh
 $ make run_shared
 ```
 
-2. Build the crystal shared library `hello_llvm.so`
+2. Build the shared library `hello_llvm.so` (written in Crystal, without stdlib)
 
 ```sh
 $ make hello_llvm.so
@@ -30,10 +30,6 @@ $ make hello_llvm.so
 
 ```sh
 $ ./run_shared
-$ echo $?           # The default `hello_llvm` just exit the process with 42
+$ echo $?
 42
 ```
-
-## Full Crystal code
-
-TODO
